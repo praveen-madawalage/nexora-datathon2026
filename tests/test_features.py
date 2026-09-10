@@ -115,3 +115,32 @@ def test_prepare_trip_duration_features(sample_trip_df):
     # Verify no post-trip leakage features present
     assert "trip_speed_mph" not in features_no_target.columns
     assert "dropoff_timestamp" not in features_no_target.columns
+
+
+def test_enrich_with_zone_metadata(sample_trip_df):
+    """Verify zone metadata lookup and interborough indicators."""
+    from src.features import enrich_with_zone_metadata
+    # Row 0: origin 132 (Queens JFK) -> dest 236 (Manhattan) -> interborough
+    # Row 2: origin 142 (Manhattan) -> dest 142 (Manhattan) -> Manhattan intra
+    enriched = enrich_with_zone_metadata(sample_trip_df)
+    assert "is_interborough" in enriched.columns
+    assert "is_manhattan_intra" in enriched.columns
+    assert "is_ewr_trip" in enriched.columns
+    assert enriched.loc[0, "is_interborough"] == 1
+    assert enriched.loc[0, "is_manhattan_intra"] == 0
+    assert enriched.loc[2, "is_interborough"] == 0
+    assert enriched.loc[2, "is_manhattan_intra"] == 1
+
+
+def test_rate_class_and_log_features(sample_trip_df):
+    """Verify rate class flags and log-transformed distance."""
+    features = prepare_upfront_pricing_features(sample_trip_df)
+    assert "log_distance" in features.columns
+    assert "is_standard_rate" in features.columns
+    assert "is_jfk_flat_rate" in features.columns
+    # Row 0 has rate_class_id=2 (JFK)
+    assert features.loc[0, "is_jfk_flat_rate"] == 1
+    assert features.loc[0, "is_standard_rate"] == 0
+    # Row 1 has rate_class_id=1 (Standard)
+    assert features.loc[1, "is_standard_rate"] == 1
+    assert features.loc[1, "is_jfk_flat_rate"] == 0

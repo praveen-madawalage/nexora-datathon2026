@@ -28,6 +28,7 @@ def get_project_root() -> Path:
 PROJECT_ROOT = get_project_root()
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
+REFERENCE_DATA_DIR = RAW_DATA_DIR / "reference"
 INTERIM_DATA_DIR = DATA_DIR / "interim"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 MODELS_DIR = PROJECT_ROOT / "models"
@@ -107,10 +108,16 @@ def calculate_regression_metrics(
     else:
         mape = np.nan
 
+    # RMSLE (Root Mean Squared Logarithmic Error)
+    yp_clip = np.clip(yp, 0, None)
+    yt_clip = np.clip(yt, 0, None)
+    rmsle = float(np.sqrt(np.mean((np.log1p(yp_clip) - np.log1p(yt_clip)) ** 2)))
+
     return {
         f"{prefix}rmse": round(rmse, 4),
         f"{prefix}mae": round(mae, 4),
         f"{prefix}r2": round(r2, 4),
+        f"{prefix}rmsle": round(rmsle, 4),
         f"{prefix}mape": round(mape, 2),
     }
 
