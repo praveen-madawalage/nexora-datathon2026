@@ -26,3 +26,5 @@ __pycache__/
 
 # Env secrets
 .env
+challange.md
+datadictionary.md   
