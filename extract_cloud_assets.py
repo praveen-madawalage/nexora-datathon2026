@@ -59,7 +59,7 @@ def main():
     # 3. Clustering summary: Archetypes, zone archetypes, and top OD corridors
     from src.clustering import extract_zone_temporal_profiles, cluster_zone_hotspots, extract_od_flows
     
-    profiles = extract_zone_temporal_profiles(str(train_parquet), reference_csv_path=str(ref_file))
+    profiles = extract_zone_temporal_profiles(str(train_parquet), reference_csv_path=str(ref_file), min_pickups=100)
     clustered, centroids = cluster_zone_hotspots(profiles, n_clusters=5, random_state=42)
     od_flows = extract_od_flows(str(train_parquet), top_n=50, reference_csv_path=str(ref_file))
     

@@ -1,59 +1,59 @@
 {
   "archetypes": [
     {
-      "pu_morning_share": 0.30872777777777777,
-      "pu_midday_share": 0.32171555555555553,
-      "pu_evening_share": 0.12786,
-      "pu_night_share": 0.2417011111111111,
-      "net_flow_ratio": -0.21072444444444446,
-      "avg_distance": 7.627777777777777,
-      "avg_duration": 34.51844444444445,
+      "pu_morning_share": 0.19996666666666668,
+      "pu_midday_share": 0.2734855072463768,
+      "pu_evening_share": 0.16626521739130434,
+      "pu_night_share": 0.36028260869565215,
+      "net_flow_ratio": -0.38492898550724636,
+      "avg_distance": 6.239565217391305,
+      "avg_duration": 25.06463768115942,
       "cluster_id": 0,
-      "archetype_name": "Commuter Exporter Hub"
-    },
-    {
-      "pu_morning_share": 0.10660333333333337,
-      "pu_midday_share": 0.19479000000000002,
-      "pu_evening_share": 0.16699666666666665,
-      "pu_night_share": 0.5316,
-      "net_flow_ratio": -0.1366533333333333,
-      "avg_distance": 4.804,
-      "avg_duration": 20.301000000000002,
-      "cluster_id": 1,
-      "archetype_name": "Nightlife & Entertainment District"
-    },
-    {
-      "pu_morning_share": 0.1362537037037037,
-      "pu_midday_share": 0.3436944444444444,
-      "pu_evening_share": 0.2563666666666667,
-      "pu_night_share": 0.2636759259259259,
-      "net_flow_ratio": -0.04543148148148138,
-      "avg_distance": 3.261111111111111,
-      "avg_duration": 16.876666666666665,
-      "cluster_id": 2,
-      "archetype_name": "Commercial & High-Density Core"
-    },
-    {
-      "pu_morning_share": 0.20861449275362318,
-      "pu_midday_share": 0.2771753623188406,
-      "pu_evening_share": 0.15964492753623188,
-      "pu_night_share": 0.35456811594202897,
-      "net_flow_ratio": -0.4162608695652174,
-      "avg_distance": 6.596231884057971,
-      "avg_duration": 26.110144927536233,
-      "cluster_id": 3,
       "archetype_name": "Residential Inflow / Attractor"
     },
     {
-      "pu_morning_share": 0.4238416666666666,
-      "pu_midday_share": 0.16235,
-      "pu_evening_share": 0.09089166666666668,
-      "pu_night_share": 0.3229166666666667,
-      "net_flow_ratio": -0.548225,
-      "avg_distance": 10.165,
-      "avg_duration": 30.877499999999998,
-      "cluster_id": 4,
+      "pu_morning_share": 0.13057924528301884,
+      "pu_midday_share": 0.34162264150943394,
+      "pu_evening_share": 0.2594830188679245,
+      "pu_night_share": 0.2683056603773585,
+      "net_flow_ratio": -0.03600566037735853,
+      "avg_distance": 3.221698113207547,
+      "avg_duration": 16.77509433962264,
+      "cluster_id": 1,
+      "archetype_name": "Commercial & High-Density Core"
+    },
+    {
+      "pu_morning_share": 0.09700434782608694,
+      "pu_midday_share": 0.17883478260869567,
+      "pu_evening_share": 0.15724347826086957,
+      "pu_night_share": 0.5669086956521738,
+      "net_flow_ratio": -0.1378913043478261,
+      "avg_distance": 4.873913043478261,
+      "avg_duration": 20.446521739130436,
+      "cluster_id": 2,
+      "archetype_name": "Nightlife & Entertainment District"
+    },
+    {
+      "pu_morning_share": 0.35113809523809525,
+      "pu_midday_share": 0.2533714285714286,
+      "pu_evening_share": 0.11550476190476192,
+      "pu_night_share": 0.2799952380952381,
+      "net_flow_ratio": -0.30230714285714283,
+      "avg_distance": 9.494047619047617,
+      "avg_duration": 35.71928571428572,
+      "cluster_id": 3,
       "archetype_name": "Outer Borough Long-Haul Peripheral"
+    },
+    {
+      "pu_morning_share": 0.2935625,
+      "pu_midday_share": 0.34033125,
+      "pu_evening_share": 0.12945468750000003,
+      "pu_night_share": 0.23665312499999996,
+      "net_flow_ratio": -0.22195156249999998,
+      "avg_distance": 6.67875,
+      "avg_duration": 32.460468750000004,
+      "cluster_id": 4,
+      "archetype_name": "Commuter Exporter Hub"
     }
   ],
   "top_zones": [
@@ -62,7 +62,7 @@
       "zone_name": "Upper East Side South",
       "borough_name": "Manhattan",
       "total_pickups": 1681909,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 1.81,
       "net_flow_ratio": 0.0505
@@ -72,8 +72,8 @@
       "zone_name": "JFK Airport",
       "borough_name": "Queens",
       "total_pickups": 1640754,
-      "cluster_id": 0,
-      "archetype_name": "Commuter Exporter Hub",
+      "cluster_id": 3,
+      "archetype_name": "Outer Borough Long-Haul Peripheral",
       "avg_distance": 15.21,
       "net_flow_ratio": 0.6527
     },
@@ -82,7 +82,7 @@
       "zone_name": "Midtown Center",
       "borough_name": "Manhattan",
       "total_pickups": 1603442,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.35,
       "net_flow_ratio": 0.0912
@@ -92,7 +92,7 @@
       "zone_name": "Upper East Side North",
       "borough_name": "Manhattan",
       "total_pickups": 1459110,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.02,
       "net_flow_ratio": -0.0199
@@ -102,7 +102,7 @@
       "zone_name": "Penn Station/Madison Sq West",
       "borough_name": "Manhattan",
       "total_pickups": 1204276,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.35,
       "net_flow_ratio": 0.2015
@@ -112,7 +112,7 @@
       "zone_name": "Midtown East",
       "borough_name": "Manhattan",
       "total_pickups": 1175811,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.31,
       "net_flow_ratio": 0.0803
@@ -122,7 +122,7 @@
       "zone_name": "Times Sq/Theatre District",
       "borough_name": "Manhattan",
       "total_pickups": 1147621,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 3.04,
       "net_flow_ratio": 0.024
@@ -132,7 +132,7 @@
       "zone_name": "Lincoln Square East",
       "borough_name": "Manhattan",
       "total_pickups": 1077785,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.23,
       "net_flow_ratio": 0.0642
@@ -142,7 +142,7 @@
       "zone_name": "LaGuardia Airport",
       "borough_name": "Queens",
       "total_pickups": 1041254,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 9.53,
       "net_flow_ratio": 0.47
@@ -152,7 +152,7 @@
       "zone_name": "Murray Hill",
       "borough_name": "Manhattan",
       "total_pickups": 993330,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.35,
       "net_flow_ratio": -0.0203
@@ -162,7 +162,7 @@
       "zone_name": "Union Sq",
       "borough_name": "Manhattan",
       "total_pickups": 986594,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.15,
       "net_flow_ratio": 0.0569
@@ -172,7 +172,7 @@
       "zone_name": "East Chelsea",
       "borough_name": "Manhattan",
       "total_pickups": 958675,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.6,
       "net_flow_ratio": 0.0044
@@ -182,7 +182,7 @@
       "zone_name": "Midtown North",
       "borough_name": "Manhattan",
       "total_pickups": 956064,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.42,
       "net_flow_ratio": 0.0475
@@ -192,7 +192,7 @@
       "zone_name": "Upper West Side South",
       "borough_name": "Manhattan",
       "total_pickups": 931658,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.3,
       "net_flow_ratio": -0.0052
@@ -202,7 +202,7 @@
       "zone_name": "East Village",
       "borough_name": "Manhattan",
       "total_pickups": 927466,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 2.56,
       "net_flow_ratio": 0.0748
@@ -213,7 +213,7 @@
       "borough_name": "Manhattan",
       "total_pickups": 877142,
       "cluster_id": 1,
-      "archetype_name": "Nightlife & Entertainment District",
+      "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.62,
       "net_flow_ratio": 0.0148
     },
@@ -222,7 +222,7 @@
       "zone_name": "West Village",
       "borough_name": "Manhattan",
       "total_pickups": 807041,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 2.32,
       "net_flow_ratio": 0.1124
@@ -232,7 +232,7 @@
       "zone_name": "Lenox Hill West",
       "borough_name": "Manhattan",
       "total_pickups": 798047,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.1,
       "net_flow_ratio": -0.0603
@@ -242,7 +242,7 @@
       "zone_name": "Midtown South",
       "borough_name": "Manhattan",
       "total_pickups": 784153,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.45,
       "net_flow_ratio": 0.0136
@@ -252,7 +252,7 @@
       "zone_name": "Gramercy",
       "borough_name": "Manhattan",
       "total_pickups": 704446,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.3,
       "net_flow_ratio": 0.0158
@@ -262,7 +262,7 @@
       "zone_name": "Lenox Hill East",
       "borough_name": "Manhattan",
       "total_pickups": 701543,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.58,
       "net_flow_ratio": -0.0122
@@ -272,7 +272,7 @@
       "zone_name": "West Chelsea/Hudson Yards",
       "borough_name": "Manhattan",
       "total_pickups": 668157,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.49,
       "net_flow_ratio": -0.0469
@@ -282,7 +282,7 @@
       "zone_name": "Upper West Side North",
       "borough_name": "Manhattan",
       "total_pickups": 660543,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.44,
       "net_flow_ratio": -0.061
@@ -292,7 +292,7 @@
       "zone_name": "Yorkville West",
       "borough_name": "Manhattan",
       "total_pickups": 657785,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.43,
       "net_flow_ratio": -0.0433
@@ -302,7 +302,7 @@
       "zone_name": "Sutton Place/Turtle Bay North",
       "borough_name": "Manhattan",
       "total_pickups": 588860,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.2,
       "net_flow_ratio": -0.0943
@@ -312,7 +312,7 @@
       "zone_name": "Flatiron",
       "borough_name": "Manhattan",
       "total_pickups": 562255,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.24,
       "net_flow_ratio": 0.0359
@@ -322,7 +322,7 @@
       "zone_name": "Greenwich Village South",
       "borough_name": "Manhattan",
       "total_pickups": 533767,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 2.4,
       "net_flow_ratio": 0.168
@@ -332,7 +332,7 @@
       "zone_name": "TriBeCa/Civic Center",
       "borough_name": "Manhattan",
       "total_pickups": 517065,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 3.24,
       "net_flow_ratio": -0.0848
@@ -342,7 +342,7 @@
       "zone_name": "Greenwich Village North",
       "borough_name": "Manhattan",
       "total_pickups": 515817,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.19,
       "net_flow_ratio": 0.058
@@ -352,7 +352,7 @@
       "zone_name": "Garment District",
       "borough_name": "Manhattan",
       "total_pickups": 515705,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.51,
       "net_flow_ratio": 0.0593
@@ -362,7 +362,7 @@
       "zone_name": "Central Park",
       "borough_name": "Manhattan",
       "total_pickups": 502397,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.19,
       "net_flow_ratio": 0.155
@@ -372,7 +372,7 @@
       "zone_name": "Yorkville East",
       "borough_name": "Manhattan",
       "total_pickups": 487383,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.65,
       "net_flow_ratio": -0.0407
@@ -382,7 +382,7 @@
       "zone_name": "Lower East Side",
       "borough_name": "Manhattan",
       "total_pickups": 460737,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 3.16,
       "net_flow_ratio": 0.0236
@@ -392,7 +392,7 @@
       "zone_name": "Little Italy/NoLiTa",
       "borough_name": "Manhattan",
       "total_pickups": 412534,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 2.65,
       "net_flow_ratio": 0.0415
@@ -402,7 +402,7 @@
       "zone_name": "Lincoln Square West",
       "borough_name": "Manhattan",
       "total_pickups": 411031,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.39,
       "net_flow_ratio": -0.1124
@@ -412,7 +412,7 @@
       "zone_name": "Kips Bay",
       "borough_name": "Manhattan",
       "total_pickups": 405695,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.67,
       "net_flow_ratio": -0.0791
@@ -422,7 +422,7 @@
       "zone_name": "UN/Turtle Bay South",
       "borough_name": "Manhattan",
       "total_pickups": 397156,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.72,
       "net_flow_ratio": -0.1377
@@ -432,7 +432,7 @@
       "zone_name": "Meatpacking/West Village West",
       "borough_name": "Manhattan",
       "total_pickups": 375598,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 2.65,
       "net_flow_ratio": -0.0137
@@ -442,7 +442,7 @@
       "zone_name": "SoHo",
       "borough_name": "Manhattan",
       "total_pickups": 314550,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.53,
       "net_flow_ratio": -0.0282
@@ -452,7 +452,7 @@
       "zone_name": "Manhattan Valley",
       "borough_name": "Manhattan",
       "total_pickups": 285458,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.7,
       "net_flow_ratio": -0.0374
@@ -462,7 +462,7 @@
       "zone_name": "East Harlem South",
       "borough_name": "Manhattan",
       "total_pickups": 273025,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 3.35,
       "net_flow_ratio": -0.2197
@@ -473,7 +473,7 @@
       "borough_name": "Manhattan",
       "total_pickups": 265939,
       "cluster_id": 1,
-      "archetype_name": "Nightlife & Entertainment District",
+      "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 4.34,
       "net_flow_ratio": -0.147
     },
@@ -482,7 +482,7 @@
       "zone_name": "Clinton West",
       "borough_name": "Manhattan",
       "total_pickups": 253767,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.89,
       "net_flow_ratio": -0.207
@@ -492,7 +492,7 @@
       "zone_name": "Battery Park City",
       "borough_name": "Manhattan",
       "total_pickups": 235456,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 4.34,
       "net_flow_ratio": -0.0919
@@ -502,7 +502,7 @@
       "zone_name": "Morningside Heights",
       "borough_name": "Manhattan",
       "total_pickups": 204469,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 3.41,
       "net_flow_ratio": -0.1426
@@ -512,7 +512,7 @@
       "zone_name": "World Trade Center",
       "borough_name": "Manhattan",
       "total_pickups": 190536,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 4.19,
       "net_flow_ratio": -0.0182
@@ -522,7 +522,7 @@
       "zone_name": "Hudson Sq",
       "borough_name": "Manhattan",
       "total_pickups": 184252,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 2.75,
       "net_flow_ratio": -0.0393
@@ -532,7 +532,7 @@
       "zone_name": "Central Harlem",
       "borough_name": "Manhattan",
       "total_pickups": 158080,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 3.74,
       "net_flow_ratio": -0.2011
@@ -542,8 +542,8 @@
       "zone_name": "East Harlem North",
       "borough_name": "Manhattan",
       "total_pickups": 144712,
-      "cluster_id": 2,
-      "archetype_name": "Commercial & High-Density Core",
+      "cluster_id": 0,
+      "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 4.07,
       "net_flow_ratio": -0.305
     },
@@ -552,7 +552,7 @@
       "zone_name": "Financial District South",
       "borough_name": "Manhattan",
       "total_pickups": 132686,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 4.69,
       "net_flow_ratio": -0.1373
@@ -562,7 +562,7 @@
       "zone_name": "Alphabet City",
       "borough_name": "Manhattan",
       "total_pickups": 118299,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 3.27,
       "net_flow_ratio": -0.183
@@ -572,7 +572,7 @@
       "zone_name": "Central Harlem North",
       "borough_name": "Manhattan",
       "total_pickups": 113470,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.03,
       "net_flow_ratio": -0.2494
@@ -582,7 +582,7 @@
       "zone_name": "East Elmhurst",
       "borough_name": "Queens",
       "total_pickups": 104645,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 9.2,
       "net_flow_ratio": 0.6666
@@ -592,7 +592,7 @@
       "zone_name": "Bloomingdale",
       "borough_name": "Manhattan",
       "total_pickups": 101452,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 3.08,
       "net_flow_ratio": -0.0774
@@ -602,7 +602,7 @@
       "zone_name": "Two Bridges/Seward Park",
       "borough_name": "Manhattan",
       "total_pickups": 98855,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 4.06,
       "net_flow_ratio": -0.3351
@@ -612,7 +612,7 @@
       "zone_name": "Seaport",
       "borough_name": "Manhattan",
       "total_pickups": 86190,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 4.23,
       "net_flow_ratio": -0.1285
@@ -622,7 +622,7 @@
       "zone_name": "Chinatown",
       "borough_name": "Manhattan",
       "total_pickups": 80321,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 3.83,
       "net_flow_ratio": -0.1897
@@ -632,7 +632,7 @@
       "zone_name": "Williamsburg (North Side)",
       "borough_name": "Brooklyn",
       "total_pickups": 79531,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 4.62,
       "net_flow_ratio": -0.1783
@@ -642,7 +642,7 @@
       "zone_name": "Washington Heights South",
       "borough_name": "Manhattan",
       "total_pickups": 78717,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.98,
       "net_flow_ratio": -0.3617
@@ -652,8 +652,8 @@
       "zone_name": "Stuy Town/Peter Cooper Village",
       "borough_name": "Manhattan",
       "total_pickups": 76067,
-      "cluster_id": 2,
-      "archetype_name": "Commercial & High-Density Core",
+      "cluster_id": 0,
+      "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 2.92,
       "net_flow_ratio": -0.3241
     },
@@ -662,7 +662,7 @@
       "zone_name": "Astoria",
       "borough_name": "Queens",
       "total_pickups": 74153,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.31,
       "net_flow_ratio": -0.1913
@@ -672,7 +672,7 @@
       "zone_name": "Hamilton Heights",
       "borough_name": "Manhattan",
       "total_pickups": 70387,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.06,
       "net_flow_ratio": -0.2376
@@ -682,7 +682,7 @@
       "zone_name": "Long Island City/Hunters Point",
       "borough_name": "Queens",
       "total_pickups": 69513,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 5.36,
       "net_flow_ratio": -0.1998
@@ -692,7 +692,7 @@
       "zone_name": "Crown Heights North",
       "borough_name": "Brooklyn",
       "total_pickups": 66406,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 5.51,
       "net_flow_ratio": -0.2039
@@ -702,8 +702,8 @@
       "zone_name": "Sunnyside",
       "borough_name": "Queens",
       "total_pickups": 64912,
-      "cluster_id": 2,
-      "archetype_name": "Commercial & High-Density Core",
+      "cluster_id": 0,
+      "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.32,
       "net_flow_ratio": -0.0481
     },
@@ -712,7 +712,7 @@
       "zone_name": "Williamsburg (South Side)",
       "borough_name": "Brooklyn",
       "total_pickups": 59382,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 4.69,
       "net_flow_ratio": -0.2499
@@ -722,7 +722,7 @@
       "zone_name": NaN,
       "borough_name": "Unknown",
       "total_pickups": 57864,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 4.07,
       "net_flow_ratio": -0.0932
@@ -732,7 +732,7 @@
       "zone_name": "Bushwick South",
       "borough_name": "Brooklyn",
       "total_pickups": 55942,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 5.56,
       "net_flow_ratio": -0.1997
@@ -742,7 +742,7 @@
       "zone_name": "Greenpoint",
       "borough_name": "Brooklyn",
       "total_pickups": 52251,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 4.69,
       "net_flow_ratio": -0.3566
@@ -752,7 +752,7 @@
       "zone_name": "East Williamsburg",
       "borough_name": "Brooklyn",
       "total_pickups": 49934,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 5.19,
       "net_flow_ratio": -0.1602
@@ -762,8 +762,8 @@
       "zone_name": "Fort Greene",
       "borough_name": "Brooklyn",
       "total_pickups": 48905,
-      "cluster_id": 1,
-      "archetype_name": "Nightlife & Entertainment District",
+      "cluster_id": 0,
+      "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.1,
       "net_flow_ratio": -0.1454
     },
@@ -772,7 +772,7 @@
       "zone_name": "Downtown Brooklyn/MetroTech",
       "borough_name": "Brooklyn",
       "total_pickups": 47598,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 5.23,
       "net_flow_ratio": -0.1668
@@ -782,7 +782,7 @@
       "zone_name": "East New York",
       "borough_name": "Brooklyn",
       "total_pickups": 47546,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 6.33,
       "net_flow_ratio": -0.1113
@@ -792,7 +792,7 @@
       "zone_name": "Brooklyn Heights",
       "borough_name": "Brooklyn",
       "total_pickups": 47425,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.43,
       "net_flow_ratio": -0.3651
@@ -802,8 +802,8 @@
       "zone_name": "DUMBO/Vinegar Hill",
       "borough_name": "Brooklyn",
       "total_pickups": 47113,
-      "cluster_id": 1,
-      "archetype_name": "Nightlife & Entertainment District",
+      "cluster_id": 0,
+      "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.12,
       "net_flow_ratio": -0.1523
     },
@@ -812,7 +812,7 @@
       "zone_name": "Manhattanville",
       "borough_name": "Manhattan",
       "total_pickups": 44939,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 4.41,
       "net_flow_ratio": -0.1746
@@ -822,8 +822,8 @@
       "zone_name": "Jackson Heights",
       "borough_name": "Queens",
       "total_pickups": 43037,
-      "cluster_id": 1,
-      "archetype_name": "Nightlife & Entertainment District",
+      "cluster_id": 0,
+      "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.07,
       "net_flow_ratio": -0.1711
     },
@@ -832,7 +832,7 @@
       "zone_name": "Boerum Hill",
       "borough_name": "Brooklyn",
       "total_pickups": 42308,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.27,
       "net_flow_ratio": -0.2669
@@ -842,7 +842,7 @@
       "zone_name": "Park Slope",
       "borough_name": "Brooklyn",
       "total_pickups": 42132,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.34,
       "net_flow_ratio": -0.4453
@@ -852,7 +852,7 @@
       "zone_name": "Stuyvesant Heights",
       "borough_name": "Brooklyn",
       "total_pickups": 41726,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.52,
       "net_flow_ratio": -0.218
@@ -862,7 +862,7 @@
       "zone_name": "Jamaica",
       "borough_name": "Queens",
       "total_pickups": 41325,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 6.97,
       "net_flow_ratio": -0.0643
@@ -872,7 +872,7 @@
       "zone_name": "Prospect-Lefferts Gardens",
       "borough_name": "Brooklyn",
       "total_pickups": 39771,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 5.52,
       "net_flow_ratio": -0.1723
@@ -882,7 +882,7 @@
       "zone_name": "Flatbush/Ditmas Park",
       "borough_name": "Brooklyn",
       "total_pickups": 38139,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 6.23,
       "net_flow_ratio": -0.1997
@@ -892,7 +892,7 @@
       "zone_name": "Bedford",
       "borough_name": "Brooklyn",
       "total_pickups": 37456,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.17,
       "net_flow_ratio": -0.2474
@@ -902,7 +902,7 @@
       "zone_name": "Washington Heights North",
       "borough_name": "Manhattan",
       "total_pickups": 35255,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 6.78,
       "net_flow_ratio": -0.4845
@@ -912,7 +912,7 @@
       "zone_name": "Bushwick North",
       "borough_name": "Brooklyn",
       "total_pickups": 34824,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 5.46,
       "net_flow_ratio": -0.1966
@@ -922,7 +922,7 @@
       "zone_name": "Long Island City/Queens Plaza",
       "borough_name": "Queens",
       "total_pickups": 34579,
-      "cluster_id": 2,
+      "cluster_id": 1,
       "archetype_name": "Commercial & High-Density Core",
       "avg_distance": 4.39,
       "net_flow_ratio": -0.0205
@@ -932,7 +932,7 @@
       "zone_name": "South Ozone Park",
       "borough_name": "Queens",
       "total_pickups": 32742,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 4.96,
       "net_flow_ratio": -0.2586
@@ -942,7 +942,7 @@
       "zone_name": "Clinton Hill",
       "borough_name": "Brooklyn",
       "total_pickups": 32524,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.22,
       "net_flow_ratio": -0.3351
@@ -952,7 +952,7 @@
       "zone_name": "Canarsie",
       "borough_name": "Brooklyn",
       "total_pickups": 31373,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 6.27,
       "net_flow_ratio": -0.1113
@@ -962,8 +962,8 @@
       "zone_name": "Old Astoria",
       "borough_name": "Queens",
       "total_pickups": 27727,
-      "cluster_id": 3,
-      "archetype_name": "Residential Inflow / Attractor",
+      "cluster_id": 4,
+      "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 5.45,
       "net_flow_ratio": -0.2138
     },
@@ -972,8 +972,8 @@
       "zone_name": "Woodside",
       "borough_name": "Queens",
       "total_pickups": 26653,
-      "cluster_id": 1,
-      "archetype_name": "Nightlife & Entertainment District",
+      "cluster_id": 0,
+      "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 4.77,
       "net_flow_ratio": -0.1229
     },
@@ -982,7 +982,7 @@
       "zone_name": "Richmond Hill",
       "borough_name": "Queens",
       "total_pickups": 26370,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 5.68,
       "net_flow_ratio": -0.0465
@@ -992,7 +992,7 @@
       "zone_name": "Mott Haven/Port Morris",
       "borough_name": "Bronx",
       "total_pickups": 26089,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.68,
       "net_flow_ratio": -0.1311
@@ -1002,7 +1002,7 @@
       "zone_name": "Elmhurst",
       "borough_name": "Queens",
       "total_pickups": 26019,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 5.06,
       "net_flow_ratio": -0.2545
@@ -1012,7 +1012,7 @@
       "zone_name": "Brownsville",
       "borough_name": "Brooklyn",
       "total_pickups": 25980,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 5.98,
       "net_flow_ratio": -0.0687
@@ -1022,7 +1022,7 @@
       "zone_name": "Ocean Hill",
       "borough_name": "Brooklyn",
       "total_pickups": 24925,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 6.2,
       "net_flow_ratio": -0.0445
@@ -1032,7 +1032,7 @@
       "zone_name": "Steinway",
       "borough_name": "Queens",
       "total_pickups": 24885,
-      "cluster_id": 3,
+      "cluster_id": 0,
       "archetype_name": "Residential Inflow / Attractor",
       "avg_distance": 5.97,
       "net_flow_ratio": -0.3874
@@ -1042,7 +1042,7 @@
       "zone_name": "East Flatbush/Remsen Village",
       "borough_name": "Brooklyn",
       "total_pickups": 24694,
-      "cluster_id": 0,
+      "cluster_id": 4,
       "archetype_name": "Commuter Exporter Hub",
       "avg_distance": 5.41,
       "net_flow_ratio": -0.0257
@@ -1052,18 +1052,18 @@
       "zone_name": "Flushing Meadows-Corona Park",
       "borough_name": "Queens",
       "total_pickups": 23236,
-      "cluster_id": 1,
+      "cluster_id": 2,
       "archetype_name": "Nightlife & Entertainment District",
       "avg_distance": 9.18,
       "net_flow_ratio": -0.2158
     }
   ],
   "cluster_counts": {
-    "Commuter Exporter Hub": 90,
     "Residential Inflow / Attractor": 69,
-    "Commercial & High-Density Core": 54,
-    "Nightlife & Entertainment District": 30,
-    "Outer Borough Long-Haul Peripheral": 12
+    "Commuter Exporter Hub": 64,
+    "Commercial & High-Density Core": 53,
+    "Outer Borough Long-Haul Peripheral": 42,
+    "Nightlife & Entertainment District": 23
   },
   "od_flows": [
     {
