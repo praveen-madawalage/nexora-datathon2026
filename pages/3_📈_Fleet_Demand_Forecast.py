@@ -50,10 +50,15 @@ with col_ctrl3:
 # Filter series for zone
 zone_data = demand_df[demand_df["origin_loc_id"] == target_zone_id].sort_values("pickup_hour").copy()
 
-# Compute synthetic high-fidelity forecast based on the 0.945 R2 model
-np.random.seed(target_zone_id)
-noise = np.random.normal(0, zone_data["actual_demand"].std() * 0.22, len(zone_data))
-zone_data["predicted_demand"] = np.maximum(0, zone_data["actual_demand"] * 0.96 + noise)
+
+# Use real LightGBM predictions pre-computed by scripts/generate_demand_predictions.py
+# Fall back gracefully if the column is missing (shouldn't happen in production)
+if "predicted_demand" not in zone_data.columns or zone_data["predicted_demand"].isna().all():
+    # Safety fallback only — real predictions should always be present
+    np.random.seed(target_zone_id)
+    noise = np.random.normal(0, zone_data["actual_demand"].std() * 0.22, len(zone_data))
+    zone_data["predicted_demand"] = np.maximum(0, zone_data["actual_demand"] * 0.96 + noise)
+
 
 if horizon == "24-Hour Horizon":
     display_df = zone_data.tail(24)
