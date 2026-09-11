@@ -11,6 +11,8 @@ data/processed/*
 # Models
 models/*.pkl
 !models/.gitkeep
+!models/fare_lgbm.pkl
+!models/duration_lgbm.pkl
 
 # Python
 .venv/
@@ -26,3 +28,5 @@ __pycache__/
 
 # Env secrets
 .env
+challange.md
+datadictionary.md   
