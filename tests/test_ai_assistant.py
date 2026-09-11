@@ -155,6 +155,37 @@ def test_generate_sql_query_preset_and_no_key():
     assert "API key" in msg
 
 
+def test_call_gemini_uses_supported_model_fallbacks(monkeypatch):
+    """Verify Gemini retries only models that support generateContent."""
+    attempted_models = []
+
+    class FakeModels:
+        def generate_content(self, *, model, contents, config):
+            attempted_models.append(model)
+            if model == "gemini-2.5-flash-lite":
+                return type("Response", (), {"text": "SELECT 1"})()
+            raise RuntimeError("model unavailable")
+
+    class FakeClient:
+        models = FakeModels()
+
+    class FakeGenai:
+        Client = lambda self, api_key: FakeClient()
+
+    class FakeTypes:
+        GenerateContentConfig = lambda self, **kwargs: kwargs
+
+    monkeypatch.setitem(__import__("sys").modules, "google.genai", FakeGenai())
+    monkeypatch.setitem(__import__("sys").modules, "google.genai.types", FakeTypes())
+    monkeypatch.setattr("google.genai", FakeGenai(), raising=False)
+
+    result = ai.call_gemini("question", "test-key")
+
+    assert result == "SELECT 1"
+    assert attempted_models == ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
+    assert "gemini-1.5-flash" not in attempted_models
+
+
 def test_narrate_result_fallbacks():
     """Verify narrative synthesis fallback under various data shapes."""
     # Empty
