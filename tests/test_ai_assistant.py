@@ -182,8 +182,8 @@ def test_call_gemini_uses_supported_model_fallbacks(monkeypatch):
     result = ai.call_gemini("question", "test-key")
 
     assert result == "SELECT 1"
-    assert attempted_models == ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
-    assert "gemini-1.5-flash" not in attempted_models
+    assert attempted_models == ["gemini-3.6-flash", "gemini-2.5-flash-lite"]
+    assert "gemini-2.0-flash" not in attempted_models
 
 
 def test_narrate_result_fallbacks():

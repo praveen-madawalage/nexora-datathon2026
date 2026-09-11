@@ -250,7 +250,7 @@ def call_gemini(
     prompt: str,
     api_key: str,
     system_instruction: str = "",
-    model_name: str = "gemini-2.5-flash",
+    model_name: str = "gemini-3.6-flash",
 ) -> str:
     """
     Calls the Google Gemini API using google.genai or fallback to google.generativeai.
@@ -271,7 +271,7 @@ def call_gemini(
         config = types.GenerateContentConfig(**config_kwargs)
 
         # Keep fallbacks on currently supported generateContent models.
-        models_to_try = list(dict.fromkeys([model_name, "gemini-2.5-flash-lite", "gemini-2.0-flash"]))
+        models_to_try = list(dict.fromkeys([model_name, "gemini-2.5-flash-lite", "gemini-2.5-flash"]))
         last_err = None
         for m in models_to_try:
             try:
@@ -292,7 +292,7 @@ def call_gemini(
         import google.generativeai as legacy_genai
 
         legacy_genai.configure(api_key=api_key)
-        models_to_try = list(dict.fromkeys([model_name, "gemini-2.5-flash-lite", "gemini-2.0-flash"]))
+        models_to_try = list(dict.fromkeys([model_name, "gemini-2.5-flash-lite", "gemini-2.5-flash"]))
         for m in models_to_try:
             try:
                 gen_model = legacy_genai.GenerativeModel(
