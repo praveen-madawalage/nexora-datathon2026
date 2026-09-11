@@ -181,7 +181,7 @@ with col_right:
 
 # Quick Navigation Section
 st.markdown("### 🧭 Interactive Application Modules")
-b1, b2, b3, b4 = st.columns(4)
+b1, b2, b3, b4, b5 = st.columns(5)
 
 with b1:
     st.markdown(
@@ -238,3 +238,18 @@ with b4:
     )
     if st.button("Launch Clustering →", key="nav_cluster", use_container_width=True):
         st.switch_page("pages/4_🗺️_Spatial_Hotspot_Clusters.py")
+
+with b5:
+    st.markdown(
+        """
+        <div class='glass-card' style='text-align: center; padding: 18px;'>
+            <div style='font-size: 2rem;'>📊</div>
+            <b style='color: #FFFFFF;'>Executive BI</b><br>
+            <span style='font-size: 0.8rem; color: #94A3B8;'>Revenue & fleet optimization</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    if st.button("Launch BI Dashboard →", key="nav_bi", use_container_width=True):
+        st.switch_page("pages/6_📊_Business_Intelligence.py")
+
