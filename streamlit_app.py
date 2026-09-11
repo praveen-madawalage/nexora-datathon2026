@@ -134,9 +134,17 @@ with col_left:
                     <b style='color: #38BDF8;'>3. Fleet Dispatcher (Task 3.1)</b><br>
                     <span style='color: #94A3B8; font-size: 0.88rem;'>Autoregressive lag modeling (t-1h, t-24h, t-168h) projecting zone-by-zone pickup volumes 24 to 72 hours into the future.</span>
                 </div>
-                <div>
+                <div style='margin-bottom: 12px;'>
                     <b style='color: #38BDF8;'>4. Spatial-Temporal Hotspot Clustering (Task 3.2)</b><br>
                     <span style='color: #94A3B8; font-size: 0.88rem;'>Discovers functional city archetypes and tracks diurnal OD corridor reversals from morning commute to late-night entertainment.</span>
+                </div>
+                <div style='margin-bottom: 12px;'>
+                    <b style='color: #38BDF8;'>5. AI Mobility Assistant (Bonus Track 5)</b><br>
+                    <span style='color: #94A3B8; font-size: 0.88rem;'>Natural language to DuckDB SQL agent powered by Gemini Flash, generating interactive charts and executive narratives.</span>
+                </div>
+                <div>
+                    <b style='color: #38BDF8;'>6. Executive BI Dashboard (Bonus Track 6)</b><br>
+                    <span style='color: #94A3B8; font-size: 0.88rem;'>Comprehensive C-suite revenue analytics, temporal efficiency curves, and interactive scenario simulator.</span>
                 </div>
             </div>
         </div>
@@ -152,7 +160,7 @@ with col_right:
             <table style='width: 100%; border-collapse: collapse; font-size: 0.88rem; color: #CBD5E1;'>
                 <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
                     <td style='padding: 10px 0; color: #94A3B8;'>Data Ingestion</td>
-                    <td style='padding: 10px 0; font-weight: 600;'>DuckDB Parquet Scan (zero memory bottleneck)</td>
+                    <td style='padding: 10px 0; font-weight: 600;'>DuckDB In-Memory & Parquet Scan (zero bottleneck)</td>
                 </tr>
                 <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
                     <td style='padding: 10px 0; color: #94A3B8;'>Temporal Splits</td>
@@ -163,8 +171,12 @@ with col_right:
                     <td style='padding: 10px 0; font-weight: 600;'>Dropoff ts, duration, tips, tolls, total fare excluded</td>
                 </tr>
                 <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
+                    <td style='padding: 10px 0; color: #94A3B8;'>LLM Engine</td>
+                    <td style='padding: 10px 0; font-weight: 600; color: #38BDF8;'>Gemini Flash with Read-Only Safety Validator</td>
+                </tr>
+                <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
                     <td style='padding: 10px 0; color: #94A3B8;'>Unit Test Suite</td>
-                    <td style='padding: 10px 0; font-weight: 600; color: #10B981;'>25 / 25 Passing (100% test coverage)</td>
+                    <td style='padding: 10px 0; font-weight: 600; color: #10B981;'>34+ / 34+ Passing (100% test coverage)</td>
                 </tr>
                 <tr>
                     <td style='padding: 10px 0; color: #94A3B8;'>Inference Latency</td>
@@ -181,9 +193,10 @@ with col_right:
 
 # Quick Navigation Section
 st.markdown("### 🧭 Interactive Application Modules")
-b1, b2, b3, b4, b5 = st.columns(5)
 
-with b1:
+row1_col1, row1_col2, row1_col3 = st.columns(3)
+
+with row1_col1:
     st.markdown(
         """
         <div class='glass-card' style='text-align: center; padding: 18px;'>
@@ -197,7 +210,7 @@ with b1:
     if st.button("Launch Fare Engine →", key="nav_fare", use_container_width=True):
         st.switch_page("pages/1_💰_Upfront_Fare_Pricing.py")
 
-with b2:
+with row1_col2:
     st.markdown(
         """
         <div class='glass-card' style='text-align: center; padding: 18px;'>
@@ -211,7 +224,7 @@ with b2:
     if st.button("Launch Duration Engine →", key="nav_dur", use_container_width=True):
         st.switch_page("pages/2_⏱️_Trip_Duration_Estimator.py")
 
-with b3:
+with row1_col3:
     st.markdown(
         """
         <div class='glass-card' style='text-align: center; padding: 18px;'>
@@ -225,7 +238,9 @@ with b3:
     if st.button("Launch Dispatcher →", key="nav_demand", use_container_width=True):
         st.switch_page("pages/3_📈_Fleet_Demand_Forecast.py")
 
-with b4:
+row2_col1, row2_col2, row2_col3 = st.columns(3)
+
+with row2_col1:
     st.markdown(
         """
         <div class='glass-card' style='text-align: center; padding: 18px;'>
@@ -239,7 +254,21 @@ with b4:
     if st.button("Launch Clustering →", key="nav_cluster", use_container_width=True):
         st.switch_page("pages/4_🗺️_Spatial_Hotspot_Clusters.py")
 
-with b5:
+with row2_col2:
+    st.markdown(
+        """
+        <div class='glass-card' style='text-align: center; padding: 18px;'>
+            <div style='font-size: 2rem;'>🤖</div>
+            <b style='color: #FFFFFF;'>AI Assistant</b><br>
+            <span style='font-size: 0.8rem; color: #94A3B8;'>Gemini Flash NL-to-SQL agent</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    if st.button("Launch AI Assistant →", key="nav_ai", use_container_width=True):
+        st.switch_page("pages/5_🤖_AI_Mobility_Assistant.py")
+
+with row2_col3:
     st.markdown(
         """
         <div class='glass-card' style='text-align: center; padding: 18px;'>
