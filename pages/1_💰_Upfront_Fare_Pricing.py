@@ -34,42 +34,49 @@ zone_map = dict(zip(zone_names, zone_ids))
 col_form, col_result = st.columns([1.1, 0.9])
 
 with col_form:
-    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
     st.markdown("<h4 style='color: #38BDF8; margin-top: 0;'>🚖 Trip Specification</h4>", unsafe_allow_html=True)
 
     c1, c2 = st.columns(2)
     with c1:
         # Default to Upper East Side South (237)
         default_origin_idx = zone_ids.index(237) if 237 in zone_ids else 0
-        origin_sel = st.selectbox("Pickup Location (Origin)", zone_names, index=default_origin_idx)
+        origin_sel = st.selectbox("Pickup Location (Origin)", zone_names, index=default_origin_idx, key="fare_origin")
     with c2:
         # Default to Midtown Center (161)
         default_dest_idx = zone_ids.index(161) if 161 in zone_ids else 1
-        dest_sel = st.selectbox("Dropoff Location (Destination)", zone_names, index=default_dest_idx)
+        dest_sel = st.selectbox("Dropoff Location (Destination)", zone_names, index=default_dest_idx, key="fare_dest")
 
     c3, c4 = st.columns(2)
     with c3:
-        pickup_date = st.date_input("Pickup Date", datetime(2026, 3, 16))
+        pickup_date = st.date_input("Pickup Date", datetime(2026, 3, 16), key="fare_date")
     with c4:
-        pickup_time = st.time_input("Pickup Time", time(8, 30))
+        pickup_time = st.time_input("Pickup Time", time(8, 30), key="fare_time")
+
+    if "fare_dist_slider" not in st.session_state:
+        st.session_state["fare_dist_slider"] = 2.4
+
+    def set_fare_dist(val: float) -> None:
+        st.session_state["fare_dist_slider"] = float(val)
 
     st.markdown("<b>Trip Distance (miles)</b>", unsafe_allow_html=True)
     preset_cols = st.columns(4)
     with preset_cols[0]:
-        if st.button("Short (1.2 mi)", use_container_width=True):
-            st.session_state["distance_val"] = 1.2
+        st.button("Short (1.2 mi)", on_click=set_fare_dist, args=(1.2,), key="btn_fare_short", use_container_width=True)
     with preset_cols[1]:
-        if st.button("Medium (3.5 mi)", use_container_width=True):
-            st.session_state["distance_val"] = 3.5
+        st.button("Medium (3.5 mi)", on_click=set_fare_dist, args=(3.5,), key="btn_fare_med", use_container_width=True)
     with preset_cols[2]:
-        if st.button("JFK Run (15.2 mi)", use_container_width=True):
-            st.session_state["distance_val"] = 15.2
+        st.button("JFK Run (15.2 mi)", on_click=set_fare_dist, args=(15.2,), key="btn_fare_jfk", use_container_width=True)
     with preset_cols[3]:
-        if st.button("Long Cross (24.0 mi)", use_container_width=True):
-            st.session_state["distance_val"] = 24.0
+        st.button("Long Cross (24.0 mi)", on_click=set_fare_dist, args=(24.0,), key="btn_fare_cross", use_container_width=True)
 
-    current_dist = st.session_state.get("distance_val", 2.4)
-    distance_miles = st.slider("Distance Slider", 0.1, 40.0, float(current_dist), 0.1, label_visibility="collapsed")
+    distance_miles = st.slider(
+        "Distance Slider",
+        min_value=0.1,
+        max_value=40.0,
+        step=0.1,
+        key="fare_dist_slider",
+        label_visibility="collapsed",
+    )
 
     c5, c6 = st.columns(2)
     with c5:
@@ -82,12 +89,15 @@ with col_form:
                 (5, "Negotiated / Corporate"),
             ],
             format_func=lambda x: x[1],
+            key="fare_rate_class",
         )
     with c6:
-        riders = st.number_input("Passenger Count", min_value=1, max_value=6, value=1)
+        riders = st.number_input("Passenger Count", min_value=1, max_value=6, value=1, key="fare_riders")
 
-    predict_clicked = st.button("⚡ Calculate Guaranteed Upfront Fare", type="primary", use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    predict_clicked = st.button("⚡ Calculate Guaranteed Upfront Fare", type="primary", use_container_width=True, key="btn_calc_fare")
+    if predict_clicked:
+        st.toast("⚡ Guaranteed upfront fare locked & recalculated!", icon="💰")
+        st.session_state["fare_calc_timestamp"] = datetime.now().strftime("%I:%M:%S %p")
 
 # Calculation
 origin_id = zone_map[origin_sel]
@@ -101,6 +111,12 @@ pred_fare, meta = predict_fare_amount(
     distance_miles=distance_miles,
     rate_class_id=rate_class[0],
     rider_count=riders,
+)
+
+calc_status_badge = (
+    f"<span class='badge badge-emerald'>✓ Locked at {st.session_state['fare_calc_timestamp']}</span>"
+    if "fare_calc_timestamp" in st.session_state
+    else "<span class='badge badge-emerald'>✓ Live Synced</span>"
 )
 
 with col_result:
@@ -118,6 +134,7 @@ with col_result:
                 <span class='badge badge-cyan'>{distance_miles:.1f} Miles</span>
                 <span class='badge badge-emerald'>Rate Class {rate_class[0]}</span>
                 <span class='badge badge-purple'>{'Rush Hour' if (pickup_time.hour in [7,8,9,16,17,18,19]) else 'Standard Traffic'}</span>
+                {calc_status_badge}
             </div>
         </div>
         """,
