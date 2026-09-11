@@ -13,6 +13,8 @@ models/*.pkl
 !models/.gitkeep
 !models/fare_lgbm.pkl
 !models/duration_lgbm.pkl
+!models/demand_lgbm.pkl
+!models/clustering_kmeans.pkl
 
 # Python
 .venv/
