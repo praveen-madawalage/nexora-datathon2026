@@ -119,6 +119,19 @@ def apply_custom_theme() -> None:
         .badge-emerald { background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); }
         .badge-purple { background: rgba(168, 85, 247, 0.15); color: #A855F7; border: 1px solid rgba(168, 85, 247, 0.3); }
 
+        /* Chat Message Styling */
+        [data-testid="stChatMessage"] {
+            background-color: rgba(18, 26, 43, 0.75) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 14px !important;
+            padding: 16px 20px !important;
+            margin-bottom: 14px !important;
+            color: #F1F5F9 !important;
+        }
+        [data-testid="stChatMessage"] p, [data-testid="stChatMessage"] div {
+            color: #F1F5F9 !important;
+        }
+
         /* Animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
