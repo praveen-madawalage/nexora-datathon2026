@@ -34,40 +34,47 @@ zone_map = dict(zip(zone_names, zone_ids))
 col_form, col_result = st.columns([1.1, 0.9])
 
 with col_form:
-    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
     st.markdown("<h4 style='color: #818CF8; margin-top: 0;'>⏱️ Journey Details</h4>", unsafe_allow_html=True)
 
     c1, c2 = st.columns(2)
     with c1:
         default_origin_idx = zone_ids.index(237) if 237 in zone_ids else 0
-        origin_sel = st.selectbox("Departure Zone", zone_names, index=default_origin_idx)
+        origin_sel = st.selectbox("Departure Zone", zone_names, index=default_origin_idx, key="dur_origin")
     with c2:
         default_dest_idx = zone_ids.index(161) if 161 in zone_ids else 1
-        dest_sel = st.selectbox("Destination Zone", zone_names, index=default_dest_idx)
+        dest_sel = st.selectbox("Destination Zone", zone_names, index=default_dest_idx, key="dur_dest")
 
     c3, c4 = st.columns(2)
     with c3:
-        pickup_date = st.date_input("Departure Date", datetime(2026, 3, 16))
+        pickup_date = st.date_input("Departure Date", datetime(2026, 3, 16), key="dur_date")
     with c4:
-        pickup_time = st.time_input("Departure Time", time(17, 30))
+        pickup_time = st.time_input("Departure Time", time(17, 30), key="dur_time")
+
+    if "dur_dist_slider" not in st.session_state:
+        st.session_state["dur_dist_slider"] = 2.8
+
+    def set_dur_dist(val: float) -> None:
+        st.session_state["dur_dist_slider"] = float(val)
 
     st.markdown("<b>Expected Distance (miles)</b>", unsafe_allow_html=True)
     preset_cols = st.columns(4)
     with preset_cols[0]:
-        if st.button("Short (1.5 mi)", use_container_width=True, key="d_short"):
-            st.session_state["dur_dist_val"] = 1.5
+        st.button("Short (1.5 mi)", on_click=set_dur_dist, args=(1.5,), use_container_width=True, key="d_short")
     with preset_cols[1]:
-        if st.button("Midtown (4.2 mi)", use_container_width=True, key="d_mid"):
-            st.session_state["dur_dist_val"] = 4.2
+        st.button("Midtown (4.2 mi)", on_click=set_dur_dist, args=(4.2,), use_container_width=True, key="d_mid")
     with preset_cols[2]:
-        if st.button("JFK Expressway (16.0 mi)", use_container_width=True, key="d_jfk"):
-            st.session_state["dur_dist_val"] = 16.0
+        st.button("JFK Expressway (16.0 mi)", on_click=set_dur_dist, args=(16.0,), use_container_width=True, key="d_jfk")
     with preset_cols[3]:
-        if st.button("Brooklyn Cross (8.5 mi)", use_container_width=True, key="d_cross"):
-            st.session_state["dur_dist_val"] = 8.5
+        st.button("Brooklyn Cross (8.5 mi)", on_click=set_dur_dist, args=(8.5,), use_container_width=True, key="d_cross")
 
-    current_dist = st.session_state.get("dur_dist_val", 2.8)
-    distance_miles = st.slider("Distance", 0.1, 40.0, float(current_dist), 0.1, label_visibility="collapsed", key="dur_slider")
+    distance_miles = st.slider(
+        "Distance",
+        min_value=0.1,
+        max_value=40.0,
+        step=0.1,
+        label_visibility="collapsed",
+        key="dur_dist_slider",
+    )
 
     c5, c6 = st.columns(2)
     with c5:
@@ -85,8 +92,10 @@ with col_form:
     with c6:
         riders = st.number_input("Riders", min_value=1, max_value=6, value=1, key="dur_riders")
 
-    calc_clicked = st.button("⚡ Estimate Exact Arrival Time", type="primary", use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    calc_clicked = st.button("⚡ Estimate Exact Arrival Time", type="primary", use_container_width=True, key="btn_calc_duration")
+    if calc_clicked:
+        st.toast("⏱️ Arrival time & duration recalculated!", icon="⚡")
+        st.session_state["dur_calc_timestamp"] = datetime.now().strftime("%I:%M:%S %p")
 
 # Prediction Calculation
 origin_id = zone_map[origin_sel]
@@ -109,6 +118,12 @@ secs_int = int((pred_mins - mins_int) * 60)
 dt_start = datetime.combine(pickup_date, pickup_time)
 dt_arrival = dt_start + timedelta(minutes=pred_mins)
 
+dur_status_badge = (
+    f"<span class='badge badge-purple'>✓ Estimated at {st.session_state['dur_calc_timestamp']}</span>"
+    if "dur_calc_timestamp" in st.session_state
+    else "<span class='badge badge-purple'>✓ Live Synced</span>"
+)
+
 with col_result:
     st.markdown(
         f"""
@@ -126,6 +141,7 @@ with col_result:
                 <span class='badge badge-purple'><b>80.8%</b> within ±5 min</span>
                 <span class='badge badge-cyan'><b>93.5%</b> within ±10 min</span>
                 <span class='badge badge-emerald'>Median Err: 2.1m</span>
+                {dur_status_badge}
             </div>
         </div>
         """,
