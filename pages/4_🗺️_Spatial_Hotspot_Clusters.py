@@ -103,36 +103,50 @@ with tab1:
             y="Archetype",
             orientation="h",
             color="Archetype",
+            text="ZoneCount",
             color_discrete_sequence=["#38BDF8", "#818CF8", "#F472B6", "#34D399", "#FBBF24"],
             title="Taxi Zone Count by Functional Archetype",
         )
+        fig_bar.update_traces(
+            texttemplate="%{x} zones",
+            textposition="outside",
+            textfont=dict(size=12, color="#E2E8F0"),
+            cliponaxis=False,
+        )
+        max_val = max(count_df["ZoneCount"]) if not count_df.empty else 100
         fig_bar.update_layout(
             template="plotly_dark",
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(18, 26, 43, 0.5)",
-            margin=dict(l=20, r=20, t=40, b=20),
+            margin=dict(l=20, r=40, t=40, b=20),
             height=340,
             showlegend=False,
-            xaxis=dict(title="Number of Zones"),
+            xaxis=dict(title="Number of Zones", range=[0, max_val * 1.22]),
             yaxis=dict(title=""),
         )
         st.plotly_chart(fig_bar, use_container_width=True)
 
     with col_arch_detail:
+        c_core = cluster_counts.get("Commercial & High-Density Core", 53)
+        c_commuter = cluster_counts.get("Commuter Exporter Hub", 64)
+        c_nightlife = cluster_counts.get("Nightlife & Entertainment District", 23)
+        c_residential = cluster_counts.get("Residential Inflow / Attractor", 69)
+        c_peripheral = cluster_counts.get("Outer Borough Long-Haul Peripheral", 42)
+
         st.markdown(
-            """
+            f"""
             <div class='glass-card' style='padding: 18px;'>
                 <h4 style='color: #38BDF8; margin-top: 0;'>Urban Mobility Archetype Descriptions</h4>
                 <div style='font-size: 0.85rem; line-height: 1.6; color: #CBD5E1;'>
-                    <b>1. Commercial & High-Density Core (53 zones):</b><br>
+                    <b>1. Commercial & High-Density Core ({c_core} zones):</b><br>
                     Balanced midday/evening activity; high trip volume; short intra-Manhattan hops (avg 1.8–2.3 mi).<br><br>
-                    <b>2. Commuter Exporter Hub (44 zones):</b><br>
+                    <b>2. Commuter Exporter Hub ({c_commuter} zones):</b><br>
                     Dominant morning outbound surge (06:00–09:00); workers traveling toward central business districts.<br><br>
-                    <b>3. Nightlife & Entertainment (38 zones):</b><br>
+                    <b>3. Nightlife & Entertainment District ({c_nightlife} zones):</b><br>
                     High volume post-21:00; concentrated in East Village, SoHo, Meatpacking.<br><br>
-                    <b>4. Residential Attractor (62 zones):</b><br>
+                    <b>4. Residential Inflow / Attractor ({c_residential} zones):</b><br>
                     Net dropoff destination in evenings; negative net flow ratio during work hours.<br><br>
-                    <b>5. Long-Haul Peripheral (54 zones):</b><br>
+                    <b>5. Outer Borough Long-Haul Peripheral ({c_peripheral} zones):</b><br>
                     Outer Queens/Bronx/Staten Island; long average distances (>8.0 mi) and airport connections.
                 </div>
             </div>
@@ -173,23 +187,32 @@ with tab2:
         )
 
     with col_od_chart:
+        top10_od = display_od.head(10).sort_values("trip_volume", ascending=True)
+        max_od = max(top10_od["trip_volume"]) if not top10_od.empty else 1000
         fig_od = px.bar(
-            display_od.head(10).sort_values("trip_volume", ascending=True),
+            top10_od,
             x="trip_volume",
             y="corridor",
             orientation="h",
             color="avg_duration",
+            text="trip_volume",
             color_continuous_scale=["#38BDF8", "#818CF8", "#F43F5E"],
             title="Top Corridors Ranked by Trip Volume (Color = Avg Duration min)",
+        )
+        fig_od.update_traces(
+            texttemplate="%{x:,.0f}",
+            textposition="outside",
+            textfont=dict(size=11, color="#E2E8F0"),
+            cliponaxis=False,
         )
         fig_od.update_layout(
             template="plotly_dark",
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(18, 26, 43, 0.5)",
-            margin=dict(l=20, r=20, t=40, b=20),
+            margin=dict(l=20, r=40, t=40, b=20),
             height=380,
             yaxis=dict(title=""),
-            xaxis=dict(title="Trip Count"),
+            xaxis=dict(title="Trip Count", range=[0, max_od * 1.2]),
         )
         st.plotly_chart(fig_od, use_container_width=True)
 
