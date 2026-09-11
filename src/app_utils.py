@@ -175,9 +175,9 @@ def load_demand_summary() -> pd.DataFrame:
 
 
 @st.cache_data
-def load_clustering_summary() -> Dict[str, Any]:
+def load_clustering_summary(cache_version: str = "v2_251_canonical_zones") -> Dict[str, Any]:
     """Load pre-computed spatial-temporal clustering and OD corridor analytics."""
-    with open(DATA_DIR / "clustering_summary.json", "r") as f:
+    with open(DATA_DIR / "clustering_summary.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 
