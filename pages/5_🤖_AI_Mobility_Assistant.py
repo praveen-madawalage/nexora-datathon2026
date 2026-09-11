@@ -215,7 +215,7 @@ def process_user_query(question_text: str) -> None:
     # 2. Generate SQL
     history = [
         {"role": m["role"], "content": m["content"]}
-        for m in st.session_state["chat_messages"][-4:]
+        for m in st.session_state["chat_messages"][-5:]
     ]
 
     with st.spinner("🤖 Translating question to safe DuckDB SQL via Gemini Flash..."):
@@ -354,13 +354,17 @@ for m in st.session_state["chat_messages"]:
                 fig = create_chart(df, chart_type)
                 if fig is not None:
                     st.plotly_chart(fig, use_container_width=True)
+            elif chart_type == "table":
+                # Large / all-categorical results — show paginated dataframe directly
+                st.dataframe(df, use_container_width=True, height=min(400, 35 + 35 * len(df)))
 
             # 2. Expandable Query and Raw Data Details
             with st.expander(f"🔍 View Generated SQL & Execution Details ({exec_ms:.1f} ms)"):
                 st.markdown(f"**DuckDB Query Executed:**")
                 st.code(sql, language="sql")
-                st.markdown(f"**Query Results Table ({len(df)} rows):**")
-                st.dataframe(df, use_container_width=True)
+                if chart_type != "table":
+                    st.markdown(f"**Query Results Table ({len(df)} rows):**")
+                    st.dataframe(df, use_container_width=True)
                 st.caption(f"🛡️ Security status: Read-only SELECT validated • In-memory execution: {exec_ms:.2f} ms")
         elif sql:
             with st.expander("🔍 View Attempted SQL"):
