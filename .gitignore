@@ -30,3 +30,6 @@ __pycache__/
 .env
 challange.md
 datadictionary.md   
+
+# Technical report drafts
+reports/*.md
