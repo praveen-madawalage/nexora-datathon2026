@@ -175,9 +175,13 @@ def test_call_gemini_uses_supported_model_fallbacks(monkeypatch):
     class FakeTypes:
         GenerateContentConfig = lambda self, **kwargs: kwargs
 
-    monkeypatch.setitem(__import__("sys").modules, "google.genai", FakeGenai())
-    monkeypatch.setitem(__import__("sys").modules, "google.genai.types", FakeTypes())
-    monkeypatch.setattr("google.genai", FakeGenai(), raising=False)
+    fake_genai = FakeGenai()
+    fake_types = FakeTypes()
+    fake_genai.types = fake_types
+    import google
+    monkeypatch.setattr(google, "genai", fake_genai, raising=False)
+    monkeypatch.setitem(__import__("sys").modules, "google.genai", fake_genai)
+    monkeypatch.setitem(__import__("sys").modules, "google.genai.types", fake_types)
 
     result = ai.call_gemini("question", "test-key")
 
